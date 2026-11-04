@@ -54,6 +54,12 @@ add_task(async function test_deepEqual() {
   Assert.ok(deepEqual({ a: 4, b: "2" }, { a: 4, b: "2" }));
   Assert.ok(deepEqual([4], ["4"]));
   Assert.ok(!deepEqual({ a: 4 }, { a: 4, b: true }));
+  Assert.ok(!deepEqual({ a: undefined }, { b: undefined }));
+  Assert.ok(!deepEqual({ a: undefined, b: 1 }, { b: 1, c: 2 }));
+  Assert.ok(!deepEqual({ a: 1, b: undefined }, { a: 1, c: undefined }));
+  Assert.ok(!deepEqual({ a: null }, { b: 1 }));
+  Assert.ok(!deepEqual({ a: null, b: 1 }, { b: 1, c: 2 }));
+  Assert.ok(deepEqual({ a: undefined, b: 1 }, { b: 1, a: undefined }));
   Assert.ok(deepEqual(["a"], { 0: "a" }));
 
   let a1 = [1, 2, 3];

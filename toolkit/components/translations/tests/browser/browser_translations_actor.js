@@ -74,7 +74,7 @@ add_task(async function test_pivot_language_behavior() {
         fromLanguagePairs.map(({ fromLang, toLang }) => ({
           sourceLanguage: fromLang,
           targetLanguage: toLang,
-          varient: undefined,
+          variant: undefined,
         }))
       ),
       "Non-pivot languages are retained on non-debug builds."

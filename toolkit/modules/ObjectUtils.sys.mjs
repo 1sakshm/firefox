@@ -197,6 +197,9 @@ function objEquiv(a, b) {
   // The same set of keys (although not necessarily the same order),
   ka.sort();
   kb.sort();
+  if (ka.some((key, i) => key !== kb[i])) {
+    return false;
+  }
   // Equivalent values for every corresponding key, and possibly expensive deep
   // test
   for (let key of ka) {
